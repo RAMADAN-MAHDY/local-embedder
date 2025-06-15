@@ -15,6 +15,6 @@ class TextInput(BaseModel):
     text: str
 
 @app.post("/embed")
-def get_embedding(data: TextInput):
+async def get_embedding(data: TextInput):
     embedding = model.encode(data.text)
     return {"embedding": embedding.tolist()}
